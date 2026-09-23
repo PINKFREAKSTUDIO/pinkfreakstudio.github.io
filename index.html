@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PINK FREAK — Y2K Chaos</title>
+<title>PINK FREAK — Liquid Chrome</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
@@ -43,8 +43,8 @@ nav{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    background:rgba(255,248,231,.62);
-    backdrop-filter:blur(20px);
+    background:rgba(255,248,231,.55);
+    backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(22,11,19,.15);
 }
 
@@ -62,13 +62,8 @@ nav{
     font-weight:bold;
 }
 
-.navlinks a{
-    transition:.2s;
-}
-
 .navlinks a:hover{
     color:#ff1493;
-    transform:rotate(5deg);
 }
 
 .cart{
@@ -77,7 +72,6 @@ nav{
     border-radius:100px;
     font-size:10px;
     font-weight:bold;
-    background:#fff8e7;
     transform:rotate(3deg);
 }
 
@@ -88,39 +82,266 @@ nav{
     position:relative;
     overflow:hidden;
     padding:120px 4vw 80px;
+    isolation:isolate;
 }
 
-/* giant background words */
+/* ================= GIANT GHOST TYPE ================= */
 
 .ghost{
     position:absolute;
-    z-index:1;
+    z-index:0;
     font-family:'Archivo Black';
-    font-size:clamp(160px,30vw,480px);
+    font-size:30vw;
     line-height:.7;
     color:transparent;
-    -webkit-text-stroke:2px rgba(255,20,147,.18);
+    -webkit-text-stroke:2px rgba(255,20,147,.12);
     white-space:nowrap;
     pointer-events:none;
 }
 
 .ghost.one{
-    top:20%;
-    left:-7%;
-    transform:rotate(-9deg);
+    top:22%;
+    left:-8%;
+    transform:rotate(-8deg);
 }
 
 .ghost.two{
-    top:55%;
-    right:-15%;
-    transform:rotate(8deg);
+    top:58%;
+    right:-18%;
+    transform:rotate(9deg);
 }
 
-/* main title */
+/* ================= LIQUID CHROME BACKGROUND ================= */
+
+.liquid-world{
+    position:absolute;
+    z-index:2;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+/* giant pink liquid mass */
+
+.molten-pink{
+    position:absolute;
+    width:78vw;
+    height:58vw;
+    left:-15vw;
+    bottom:-18vw;
+    border-radius:50% 45% 52% 38%;
+    background:
+        radial-gradient(
+            ellipse at 30% 15%,
+            #ffffff 0%,
+            #ffd9ed 4%,
+            #ff8bca 12%,
+            #ff1493 30%,
+            #bd006f 55%,
+            #6b003f 72%,
+            #ff1493 86%,
+            #ffffff 100%
+        );
+    box-shadow:
+        inset 35px 30px 55px rgba(255,255,255,.8),
+        inset -45px -55px 70px rgba(65,0,40,.55),
+        0 -20px 80px rgba(255,20,147,.5);
+    animation:molten 8s ease-in-out infinite;
+}
+
+/* giant chrome mass */
+
+.molten-chrome{
+    position:absolute;
+    width:72vw;
+    height:53vw;
+    right:-15vw;
+    bottom:-16vw;
+    border-radius:48% 55% 38% 50%;
+    background:
+        radial-gradient(
+            ellipse at 28% 12%,
+            #ffffff 0%,
+            #ffffff 5%,
+            #bcbcbc 12%,
+            #555 21%,
+            #f9f9f9 31%,
+            #777 40%,
+            #151515 49%,
+            #eeeeee 58%,
+            #707070 69%,
+            #ffffff 77%,
+            #ff1493 91%,
+            #8c0055 100%
+        );
+    box-shadow:
+        inset 30px 25px 55px rgba(255,255,255,.9),
+        inset -45px -50px 70px rgba(0,0,0,.6),
+        0 -15px 70px rgba(255,255,255,.35);
+    animation:molten 10s ease-in-out infinite reverse;
+}
+
+@keyframes molten{
+    0%,100%{
+        transform:scale(1) rotate(0deg);
+        border-radius:50% 45% 52% 38%;
+    }
+    50%{
+        transform:scale(1.04) rotate(3deg);
+        border-radius:42% 57% 43% 58%;
+    }
+}
+
+/* ================= CHROME DRIPS ================= */
+
+.drip{
+    position:absolute;
+    z-index:10;
+    width:var(--w);
+    height:var(--h);
+    left:var(--x);
+    top:var(--y);
+    border-radius:0 0 50px 50px;
+    background:
+        linear-gradient(
+            90deg,
+            #222 0%,
+            #eee 12%,
+            #fff 23%,
+            #777 38%,
+            #111 52%,
+            #eee 67%,
+            #fff 78%,
+            #444 100%
+        );
+    box-shadow:
+        inset 8px 0 10px rgba(255,255,255,.7),
+        inset -8px 0 12px rgba(0,0,0,.5),
+        0 12px 25px rgba(0,0,0,.3);
+    transform-origin:top center;
+    animation:dripmove 5s ease-in-out infinite;
+}
+
+/* pink chrome drips */
+
+.drip.pink{
+    background:
+        linear-gradient(
+            90deg,
+            #7b0049 0%,
+            #ff1493 18%,
+            #fff 31%,
+            #ff62b5 43%,
+            #b90070 58%,
+            #ffb8df 74%,
+            #ff1493 88%,
+            #65003c 100%
+        );
+    box-shadow:
+        inset 8px 0 10px rgba(255,255,255,.75),
+        inset -8px 0 15px rgba(70,0,45,.5),
+        0 15px 30px rgba(255,20,147,.35);
+}
+
+.drip.d1{
+    --w:75px;
+    --h:280px;
+    --x:8%;
+    --y:56%;
+}
+
+.drip.d2{
+    --w:42px;
+    --h:180px;
+    --x:20%;
+    --y:67%;
+    animation-delay:1s;
+}
+
+.drip.d3{
+    --w:95px;
+    --h:350px;
+    --x:72%;
+    --y:53%;
+    animation-delay:2s;
+}
+
+.drip.d4{
+    --w:38px;
+    --h:220px;
+    --x:84%;
+    --y:61%;
+    animation-delay:.5s;
+}
+
+.drip.d5{
+    --w:55px;
+    --h:240px;
+    --x:56%;
+    --y:70%;
+    animation-delay:1.5s;
+}
+
+@keyframes dripmove{
+    0%,100%{
+        transform:scaleY(1);
+    }
+    50%{
+        transform:scaleY(1.08);
+    }
+}
+
+/* drip bubbles */
+
+.drip::after{
+    content:"";
+    position:absolute;
+    width:90%;
+    height:25px;
+    left:5%;
+    top:3px;
+    border-radius:50%;
+    background:rgba(255,255,255,.7);
+    filter:blur(3px);
+}
+
+/* ================= LIQUID HORIZONTAL SURFACE ================= */
+
+.liquid-surface{
+    position:absolute;
+    z-index:15;
+    width:130%;
+    height:27%;
+    left:-15%;
+    bottom:-12%;
+    border-radius:50%;
+    transform:perspective(500px) rotateX(48deg) rotateZ(-2deg);
+    background:
+        linear-gradient(
+            180deg,
+            #fff 0%,
+            #dcdcdc 7%,
+            #555 15%,
+            #f8f8f8 23%,
+            #222 31%,
+            #aaa 39%,
+            #fff 47%,
+            #ff1493 55%,
+            #b90070 65%,
+            #ff83c5 76%,
+            #fff 88%,
+            #555 100%
+        );
+    box-shadow:
+        inset 0 20px 45px rgba(255,255,255,.9),
+        0 -20px 70px rgba(255,20,147,.45);
+}
+
+/* ================= HERO TITLE ================= */
 
 .hero-title{
     position:relative;
-    z-index:20;
+    z-index:100;
     margin-top:25px;
     font-family:'Archivo Black';
     font-size:clamp(85px,17vw,250px);
@@ -131,76 +352,77 @@ nav{
 
 .hero-title .pink{
     color:#ff1493;
-    transform:rotate(-4deg);
     display:block;
     width:max-content;
+    transform:rotate(-4deg);
     text-shadow:
-        5px 5px 0 #fff,
-        9px 9px 0 #160b13;
+        5px 5px 0 white,
+        10px 10px 0 #160b13;
 }
 
 .hero-title .freak{
     position:relative;
-    left:9vw;
+    left:8vw;
     display:block;
     width:max-content;
     transform:rotate(4deg);
     background:
         linear-gradient(
             180deg,
-            #fff 0%,
-            #ffb4df 12%,
-            #ff1493 28%,
-            #fff 43%,
-            #bd0075 58%,
+            #111 0%,
+            #fff 10%,
+            #777 18%,
+            #fff 29%,
+            #111 40%,
+            #eee 51%,
+            #555 60%,
             #fff 71%,
-            #ff1493 86%,
-            #fff 100%
+            #ff1493 82%,
+            #fff 91%,
+            #222 100%
         );
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     filter:
         drop-shadow(5px 5px 0 #d0d0d0)
-        drop-shadow(11px 13px 0 #160b13)
-        drop-shadow(14px 20px 20px rgba(255,20,147,.4));
+        drop-shadow(10px 12px 0 #160b13)
+        drop-shadow(15px 20px 25px rgba(255,20,147,.45));
 }
 
-/* distorted little text */
+/* ================= TEXT ================= */
 
 .micro{
     position:absolute;
-    z-index:50;
+    z-index:150;
     font-family:'Bebas Neue';
-    font-size:25px;
+    font-size:23px;
     letter-spacing:3px;
 }
 
 .micro.one{
-    top:17%;
+    top:16%;
     right:12%;
     transform:rotate(12deg);
 }
 
 .micro.two{
-    top:65%;
-    left:5%;
-    transform:rotate(-15deg);
+    top:63%;
+    left:4%;
+    transform:rotate(-14deg);
 }
 
 .micro.three{
-    top:77%;
-    right:7%;
+    top:78%;
+    right:6%;
     transform:rotate(7deg);
 }
 
-/* hero copy */
-
 .hero-copy{
     position:relative;
-    z-index:50;
+    z-index:150;
     margin-top:45px;
     margin-left:7vw;
-    max-width:390px;
+    max-width:400px;
     font-size:12px;
     line-height:1.6;
     font-weight:bold;
@@ -209,7 +431,7 @@ nav{
 
 .shop-btn{
     position:relative;
-    z-index:100;
+    z-index:200;
     display:inline-block;
     margin:25px 0 0 7vw;
     padding:17px 28px;
@@ -220,8 +442,8 @@ nav{
     font-weight:bold;
     letter-spacing:1px;
     transform:rotate(3deg);
-    transition:.25s;
     box-shadow:7px 7px 0 #ff1493;
+    transition:.25s;
 }
 
 .shop-btn:hover{
@@ -231,161 +453,76 @@ nav{
     box-shadow:7px 7px 0 #160b13;
 }
 
-/* ================= LIQUID CHAOS ================= */
-
-.chaos{
-    position:absolute;
-    z-index:5;
-    inset:0;
-    pointer-events:none;
-}
-
-.blob{
-    position:absolute;
-    border-radius:50%;
-    background:
-        radial-gradient(
-            circle at 25% 18%,
-            #fff 0%,
-            #ffd5ec 7%,
-            #ff78c3 20%,
-            #ff1493 43%,
-            #97005e 68%,
-            #fff 100%
-        );
-    box-shadow:
-        inset 30px 25px 50px rgba(255,255,255,.7),
-        inset -35px -40px 55px rgba(60,0,40,.45),
-        0 30px 60px rgba(255,20,147,.35);
-    animation:blobmove 7s ease-in-out infinite;
-}
-
-.blob.one{
-    width:55vw;
-    height:42vw;
-    min-width:400px;
-    min-height:300px;
-    left:-5%;
-    bottom:-5%;
-    transform:rotate(-15deg);
-}
-
-.blob.two{
-    width:45vw;
-    height:38vw;
-    right:-8%;
-    bottom:0;
-    transform:rotate(17deg);
-    animation-delay:-2s;
-}
-
-.blob.three{
-    width:28vw;
-    height:25vw;
-    left:38%;
-    bottom:-8%;
-    animation-delay:-4s;
-}
-
-@keyframes blobmove{
-    0%,100%{
-        border-radius:50% 45% 55% 42%;
-    }
-    50%{
-        border-radius:42% 58% 45% 60%;
-        transform:rotate(7deg) scale(1.04);
-    }
-}
-
-/* liquid floor */
-
-.liquid{
-    position:absolute;
-    width:125%;
-    height:29%;
-    left:-12%;
-    bottom:-13%;
-    border-radius:50%;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            #ff1493 0 7px,
-            #fff 7px 13px,
-            #ff72bf 13px 20px
-        );
-    transform:perspective(400px) rotateX(50deg) rotateZ(-2deg);
-    box-shadow:
-        inset 0 20px 35px white,
-        0 -20px 50px rgba(255,20,147,.5);
-}
-
-/* ================= FLOATING OBJECTS ================= */
+/* ================= ORBS ================= */
 
 .orb{
     position:absolute;
-    z-index:60;
+    z-index:170;
     border-radius:50%;
     background:
         radial-gradient(
-            circle at 28% 20%,
-            #fff 0%,
-            #eee 7%,
-            #ff9bd5 18%,
-            #ff1493 42%,
-            #6d0045 70%,
+            circle at 27% 18%,
+            white 0%,
+            #fff 6%,
+            #aaa 13%,
+            #222 25%,
+            #fff 37%,
+            #666 50%,
+            #111 65%,
+            #ff1493 79%,
             #fff 100%
         );
     box-shadow:
-        inset -12px -15px 20px rgba(70,0,50,.4),
-        0 15px 40px rgba(255,20,147,.4);
+        inset -12px -15px 25px rgba(0,0,0,.5),
+        0 20px 40px rgba(255,20,147,.35);
     animation:float 4s ease-in-out infinite;
 }
 
 .orb.a{
-    width:95px;
-    height:95px;
-    right:15%;
-    top:22%;
+    width:100px;
+    height:100px;
+    right:14%;
+    top:23%;
 }
 
 .orb.b{
-    width:42px;
-    height:42px;
-    left:48%;
-    top:33%;
-    animation-delay:-1s;
+    width:40px;
+    height:40px;
+    left:45%;
+    top:36%;
+    animation-delay:1s;
 }
 
 .orb.c{
     width:28px;
     height:28px;
-    left:16%;
+    left:15%;
     top:42%;
-    animation-delay:-2s;
+    animation-delay:2s;
 }
 
 .orb.d{
     width:62px;
     height:62px;
-    right:38%;
+    right:36%;
     top:61%;
-    animation-delay:-3s;
+    animation-delay:3s;
 }
 
 @keyframes float{
     0%,100%{
-        transform:translate(0,0) rotate(0);
+        transform:translateY(0) rotate(0);
     }
     50%{
-        transform:translate(15px,-28px) rotate(20deg);
+        transform:translateY(-25px) rotate(18deg);
     }
 }
 
-/* ================= CHAOTIC STARS ================= */
+/* ================= STARS ================= */
 
 .star{
     position:absolute;
-    z-index:80;
+    z-index:250;
     color:white;
     font-size:35px;
     text-shadow:
@@ -395,28 +532,10 @@ nav{
     animation:shine 1.8s infinite;
 }
 
-.star.a{
-    top:19%;
-    right:27%;
-}
-
-.star.b{
-    top:47%;
-    left:42%;
-    animation-delay:.5s;
-}
-
-.star.c{
-    top:67%;
-    right:19%;
-    animation-delay:1s;
-}
-
-.star.d{
-    top:35%;
-    left:9%;
-    animation-delay:1.5s;
-}
+.star.a{top:19%;right:28%}
+.star.b{top:46%;left:42%;animation-delay:.5s}
+.star.c{top:68%;right:20%;animation-delay:1s}
+.star.d{top:34%;left:9%;animation-delay:1.5s}
 
 @keyframes shine{
     0%,100%{
@@ -429,11 +548,11 @@ nav{
     }
 }
 
-/* ================= FLOATING LABELS ================= */
+/* ================= STICKERS ================= */
 
 .sticker{
     position:absolute;
-    z-index:100;
+    z-index:300;
     padding:10px 15px;
     border:2px solid #160b13;
     background:#fff8e7;
@@ -444,7 +563,7 @@ nav{
 }
 
 .sticker.one{
-    right:5%;
+    right:4%;
     top:43%;
     transform:rotate(11deg);
 }
@@ -457,7 +576,7 @@ nav{
 
 .sticker.three{
     right:34%;
-    top:15%;
+    top:14%;
     transform:rotate(-7deg);
 }
 
@@ -498,13 +617,13 @@ nav{
 }
 
 .section::before{
-    content:"PINK FREAK";
+    content:"CHROME";
     position:absolute;
     z-index:0;
     top:20px;
     left:-20px;
     font-family:'Archivo Black';
-    font-size:20vw;
+    font-size:23vw;
     color:transparent;
     -webkit-text-stroke:2px rgba(255,20,147,.1);
     transform:rotate(-5deg);
@@ -543,10 +662,6 @@ nav{
     gap:25px;
 }
 
-.product{
-    display:block;
-}
-
 .product:nth-child(1){
     transform:rotate(-3deg);
 }
@@ -566,13 +681,16 @@ nav{
     overflow:hidden;
     border:3px solid #160b13;
     background:
-        radial-gradient(circle at 25% 20%,white,transparent 10%),
-        radial-gradient(circle at 80% 80%,#fff,transparent 7%),
+        radial-gradient(circle at 20% 15%,#fff,transparent 8%),
         linear-gradient(
             135deg,
-            #ffd7ed,
-            #ff1493 40%,
-            #760047 80%
+            #222,
+            #fff 18%,
+            #555 31%,
+            #111 43%,
+            #fff 56%,
+            #ff1493 70%,
+            #720046 100%
         );
     box-shadow:10px 10px 0 #160b13;
     transition:.3s;
@@ -580,19 +698,30 @@ nav{
 
 .product:nth-child(2) .product-image{
     background:
-        repeating-linear-gradient(
-            135deg,
-            #ff1493 0 15px,
-            #ff9ed6 15px 28px,
-            #fff 28px 34px,
-            #b60070 34px 48px
+        linear-gradient(
+            120deg,
+            #ff1493,
+            #fff 15%,
+            #777 27%,
+            #111 39%,
+            #eee 51%,
+            #ff1493 66%,
+            #520031 100%
         );
 }
 
 .product:nth-child(3) .product-image{
     background:
-        radial-gradient(circle at 50% 25%,white,transparent 10%),
-        linear-gradient(120deg,#fff,#ff1493 45%,#580036);
+        linear-gradient(
+            135deg,
+            #fff,
+            #444 17%,
+            #111 30%,
+            #fff 43%,
+            #ff1493 58%,
+            #b90070 76%,
+            #fff 92%
+        );
 }
 
 .product-image::before{
@@ -754,20 +883,43 @@ footer{
         margin-left:3vw;
     }
 
-    .blob.one{
-        width:90vw;
-        height:65vw;
+    .molten-pink{
+        width:110vw;
+        height:85vw;
+        left:-30vw;
+        bottom:-18vw;
     }
 
-    .blob.two{
-        width:75vw;
-        height:60vw;
+    .molten-chrome{
+        width:100vw;
+        height:80vw;
+        right:-35vw;
+        bottom:-15vw;
     }
 
-    .blob.three{
-        width:50vw;
-        height:45vw;
-        left:30%;
+    .drip.d1{
+        --w:45px;
+        --h:190px;
+    }
+
+    .drip.d2{
+        --w:28px;
+        --h:130px;
+    }
+
+    .drip.d3{
+        --w:55px;
+        --h:220px;
+    }
+
+    .drip.d4{
+        --w:25px;
+        --h:150px;
+    }
+
+    .drip.d5{
+        --w:35px;
+        --h:160px;
     }
 
     .sticker.one{
@@ -846,14 +998,34 @@ footer{
     <div class="ghost one">FREAK</div>
     <div class="ghost two">PINK</div>
 
+    <!-- LIQUID CHROME WORLD -->
+
+    <div class="liquid-world">
+
+        <div class="molten-pink"></div>
+        <div class="molten-chrome"></div>
+
+        <div class="drip pink d1"></div>
+        <div class="drip pink d2"></div>
+        <div class="drip d3"></div>
+        <div class="drip d4"></div>
+        <div class="drip pink d5"></div>
+
+        <div class="liquid-surface"></div>
+
+    </div>
+
+
     <div class="hero-title">
         <div class="pink">PINK</div>
         <div class="freak">FREAK</div>
     </div>
 
+
     <div class="micro one">COLLECTION_001</div>
-    <div class="micro two">NO RULES / NO NORMAL</div>
+    <div class="micro two">MOLTEN / CHROME / PINK</div>
     <div class="micro three">Y2K_//_RELOADED</div>
+
 
     <p class="hero-copy">
         Y2K fashion for people who were never
@@ -862,31 +1034,25 @@ footer{
         WEAR IT WEIRD.
     </p>
 
+
     <a href="#shop" class="shop-btn">
         SHOP THE DROP →
     </a>
 
-    <div class="chaos">
-
-        <div class="blob one"></div>
-        <div class="blob two"></div>
-        <div class="blob three"></div>
-
-        <div class="liquid"></div>
-
-    </div>
 
     <div class="orb a"></div>
     <div class="orb b"></div>
     <div class="orb c"></div>
     <div class="orb d"></div>
 
+
     <div class="star a">✦</div>
     <div class="star b">✦</div>
     <div class="star c">✦</div>
     <div class="star d">✦</div>
 
-    <div class="sticker one">TOO MUCH?</div>
+
+    <div class="sticker one">MOLTEN</div>
     <div class="sticker two">FREAK MODE</div>
     <div class="sticker three">EST. 2026</div>
 
@@ -895,7 +1061,7 @@ footer{
 
 <div class="marquee">
     <div class="marquee-inner">
-        PINK FREAK ✦ CHROME ATTITUDE ✦ Y2K FOREVER ✦ NO NORMAL PEOPLE ✦ NEW DROP ✦ PINK FREAK ✦ CHROME ATTITUDE ✦ Y2K FOREVER ✦ NO NORMAL PEOPLE ✦ NEW DROP ✦
+        PINK FREAK ✦ MOLTEN CHROME ✦ LIQUID PINK ✦ Y2K FOREVER ✦ NO NORMAL PEOPLE ✦ CHROME ATTITUDE ✦ PINK FREAK ✦ MOLTEN CHROME ✦ LIQUID PINK ✦ Y2K FOREVER ✦ NO NORMAL PEOPLE ✦
     </div>
 </div>
 
@@ -913,6 +1079,7 @@ footer{
         </div>
 
     </div>
+
 
     <div class="products">
 
