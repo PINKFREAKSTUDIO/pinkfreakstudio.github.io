@@ -3,540 +3,824 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PINK FREAK</title>
+<title>PINK FREAK — Y2K Chaos</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    background: #fff8e7;
-    color: #160b13;
-    font-family: 'Space Mono', monospace;
-    overflow-x: hidden;
+body{
+    background:#fff8e7;
+    color:#160b13;
+    font-family:'Space Mono',monospace;
+    overflow-x:hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 /* ================= NAV ================= */
 
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 74px;
-    padding: 0 4vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 999;
-    background: rgba(255,248,231,.72);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(0,0,0,.08);
+nav{
+    position:fixed;
+    z-index:9999;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    padding:0 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(255,248,231,.62);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(22,11,19,.15);
 }
 
-.logo {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 22px;
-    letter-spacing: -2px;
+.logo{
+    font-family:'Archivo Black';
+    font-size:21px;
+    letter-spacing:-2px;
+    transform:rotate(-3deg);
 }
 
-.navlinks {
-    display: flex;
-    gap: 32px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
+.navlinks{
+    display:flex;
+    gap:30px;
+    font-size:10px;
+    font-weight:bold;
 }
 
-.navlinks a:hover {
-    color: #ff1493;
+.navlinks a{
+    transition:.2s;
 }
 
-.cart {
-    padding: 10px 17px;
-    border: 1px solid #160b13;
-    border-radius: 50px;
-    font-size: 10px;
-    font-weight: 700;
+.navlinks a:hover{
+    color:#ff1493;
+    transform:rotate(5deg);
+}
+
+.cart{
+    border:2px solid #160b13;
+    padding:9px 16px;
+    border-radius:100px;
+    font-size:10px;
+    font-weight:bold;
+    background:#fff8e7;
+    transform:rotate(3deg);
 }
 
 /* ================= HERO ================= */
 
-.hero {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    padding: 150px 5vw 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.hero{
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    padding:120px 4vw 80px;
 }
 
-.hero-title {
-    position: relative;
-    z-index: 10;
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(75px, 16vw, 230px);
-    line-height: .72;
-    letter-spacing: -.1em;
-    text-transform: uppercase;
+/* giant background words */
+
+.ghost{
+    position:absolute;
+    z-index:1;
+    font-family:'Archivo Black';
+    font-size:clamp(160px,30vw,480px);
+    line-height:.7;
+    color:transparent;
+    -webkit-text-stroke:2px rgba(255,20,147,.18);
+    white-space:nowrap;
+    pointer-events:none;
 }
 
-.pink {
-    color: #ff1493;
+.ghost.one{
+    top:20%;
+    left:-7%;
+    transform:rotate(-9deg);
 }
 
-.chrome {
-    background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #ff8fd1 15%,
-        #ff1493 35%,
-        #ffffff 50%,
-        #c9007d 67%,
-        #ffffff 82%,
-        #ff1493 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(5px 8px 0 #d7d7d7)
-            drop-shadow(9px 12px 18px rgba(255,20,147,.35));
+.ghost.two{
+    top:55%;
+    right:-15%;
+    transform:rotate(8deg);
 }
 
-.hero-copy {
-    position: relative;
-    z-index: 20;
-    margin-top: 42px;
-    max-width: 430px;
-    font-size: 13px;
-    line-height: 1.6;
-    font-weight: 700;
+/* main title */
+
+.hero-title{
+    position:relative;
+    z-index:20;
+    margin-top:25px;
+    font-family:'Archivo Black';
+    font-size:clamp(85px,17vw,250px);
+    line-height:.67;
+    letter-spacing:-.12em;
+    text-transform:uppercase;
 }
 
-.shop-btn {
-    position: relative;
-    z-index: 20;
-    width: fit-content;
-    margin-top: 25px;
-    padding: 17px 27px;
-    background: #160b13;
-    color: #fff8e7;
-    border-radius: 50px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: .3s;
+.hero-title .pink{
+    color:#ff1493;
+    transform:rotate(-4deg);
+    display:block;
+    width:max-content;
+    text-shadow:
+        5px 5px 0 #fff,
+        9px 9px 0 #160b13;
 }
 
-.shop-btn:hover {
-    background: #ff1493;
-    transform: scale(1.07);
-}
-
-/* ================= LIQUID LANDSCAPE ================= */
-
-.landscape {
-    position: absolute;
-    left: -10%;
-    bottom: -12%;
-    width: 120%;
-    height: 58%;
-}
-
-.blob {
-    position: absolute;
-    border-radius: 50%;
-    background:
-        radial-gradient(
-            circle at 30% 20%,
-            #ffffff 0%,
-            #ffd4ec 8%,
-            #ff65b8 25%,
-            #ff1493 48%,
-            #94005d 75%,
-            #ffffff 100%
-        );
-    box-shadow:
-        inset 25px 20px 45px rgba(255,255,255,.65),
-        inset -35px -35px 55px rgba(76,0,48,.4),
-        0 25px 50px rgba(255,20,147,.3);
-}
-
-.blob.one {
-    width: 70%;
-    height: 75%;
-    left: 5%;
-    bottom: 12%;
-    transform: rotate(-8deg);
-}
-
-.blob.two {
-    width: 58%;
-    height: 65%;
-    right: -3%;
-    bottom: 3%;
-    transform: rotate(12deg);
-}
-
-.blob.three {
-    width: 38%;
-    height: 48%;
-    left: 38%;
-    bottom: 4%;
-    transform: rotate(-5deg);
-}
-
-/* Liquid surface */
-
-.liquid {
-    position: absolute;
-    width: 120%;
-    height: 34%;
-    left: -10%;
-    bottom: -10%;
-    border-radius: 50%;
+.hero-title .freak{
+    position:relative;
+    left:9vw;
+    display:block;
+    width:max-content;
+    transform:rotate(4deg);
     background:
         linear-gradient(
             180deg,
-            #ff9dd5 0%,
-            #ff1493 23%,
-            #a90068 46%,
-            #ffffff 50%,
-            #ff1493 57%,
-            #ff7bc4 75%,
-            #f9d8ed 100%
+            #fff 0%,
+            #ffb4df 12%,
+            #ff1493 28%,
+            #fff 43%,
+            #bd0075 58%,
+            #fff 71%,
+            #ff1493 86%,
+            #fff 100%
         );
-    transform: perspective(450px) rotateX(48deg);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:
+        drop-shadow(5px 5px 0 #d0d0d0)
+        drop-shadow(11px 13px 0 #160b13)
+        drop-shadow(14px 20px 20px rgba(255,20,147,.4));
+}
+
+/* distorted little text */
+
+.micro{
+    position:absolute;
+    z-index:50;
+    font-family:'Bebas Neue';
+    font-size:25px;
+    letter-spacing:3px;
+}
+
+.micro.one{
+    top:17%;
+    right:12%;
+    transform:rotate(12deg);
+}
+
+.micro.two{
+    top:65%;
+    left:5%;
+    transform:rotate(-15deg);
+}
+
+.micro.three{
+    top:77%;
+    right:7%;
+    transform:rotate(7deg);
+}
+
+/* hero copy */
+
+.hero-copy{
+    position:relative;
+    z-index:50;
+    margin-top:45px;
+    margin-left:7vw;
+    max-width:390px;
+    font-size:12px;
+    line-height:1.6;
+    font-weight:bold;
+    transform:rotate(-2deg);
+}
+
+.shop-btn{
+    position:relative;
+    z-index:100;
+    display:inline-block;
+    margin:25px 0 0 7vw;
+    padding:17px 28px;
+    background:#160b13;
+    color:#fff8e7;
+    border-radius:100px;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:1px;
+    transform:rotate(3deg);
+    transition:.25s;
+    box-shadow:7px 7px 0 #ff1493;
+}
+
+.shop-btn:hover{
+    background:#ff1493;
+    color:#160b13;
+    transform:rotate(-5deg) scale(1.08);
+    box-shadow:7px 7px 0 #160b13;
+}
+
+/* ================= LIQUID CHAOS ================= */
+
+.chaos{
+    position:absolute;
+    z-index:5;
+    inset:0;
+    pointer-events:none;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle at 25% 18%,
+            #fff 0%,
+            #ffd5ec 7%,
+            #ff78c3 20%,
+            #ff1493 43%,
+            #97005e 68%,
+            #fff 100%
+        );
     box-shadow:
-        inset 0 20px 40px rgba(255,255,255,.8),
-        0 -10px 40px rgba(255,20,147,.35);
+        inset 30px 25px 50px rgba(255,255,255,.7),
+        inset -35px -40px 55px rgba(60,0,40,.45),
+        0 30px 60px rgba(255,20,147,.35);
+    animation:blobmove 7s ease-in-out infinite;
+}
+
+.blob.one{
+    width:55vw;
+    height:42vw;
+    min-width:400px;
+    min-height:300px;
+    left:-5%;
+    bottom:-5%;
+    transform:rotate(-15deg);
+}
+
+.blob.two{
+    width:45vw;
+    height:38vw;
+    right:-8%;
+    bottom:0;
+    transform:rotate(17deg);
+    animation-delay:-2s;
+}
+
+.blob.three{
+    width:28vw;
+    height:25vw;
+    left:38%;
+    bottom:-8%;
+    animation-delay:-4s;
+}
+
+@keyframes blobmove{
+    0%,100%{
+        border-radius:50% 45% 55% 42%;
+    }
+    50%{
+        border-radius:42% 58% 45% 60%;
+        transform:rotate(7deg) scale(1.04);
+    }
+}
+
+/* liquid floor */
+
+.liquid{
+    position:absolute;
+    width:125%;
+    height:29%;
+    left:-12%;
+    bottom:-13%;
+    border-radius:50%;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #ff1493 0 7px,
+            #fff 7px 13px,
+            #ff72bf 13px 20px
+        );
+    transform:perspective(400px) rotateX(50deg) rotateZ(-2deg);
+    box-shadow:
+        inset 0 20px 35px white,
+        0 -20px 50px rgba(255,20,147,.5);
 }
 
 /* ================= FLOATING OBJECTS ================= */
 
-.orb {
-    position: absolute;
-    z-index: 8;
-    border-radius: 50%;
+.orb{
+    position:absolute;
+    z-index:60;
+    border-radius:50%;
     background:
         radial-gradient(
-            circle at 27% 20%,
-            #ffffff 0%,
-            #eeeeee 8%,
-            #ff78c2 25%,
-            #ff1493 45%,
-            #770049 70%,
-            #ffffff 100%
+            circle at 28% 20%,
+            #fff 0%,
+            #eee 7%,
+            #ff9bd5 18%,
+            #ff1493 42%,
+            #6d0045 70%,
+            #fff 100%
         );
     box-shadow:
         inset -12px -15px 20px rgba(70,0,50,.4),
-        0 20px 40px rgba(255,20,147,.3);
-    animation: float 5s ease-in-out infinite;
+        0 15px 40px rgba(255,20,147,.4);
+    animation:float 4s ease-in-out infinite;
 }
 
-.orb.a {
-    width: 78px;
-    height: 78px;
-    right: 12%;
-    top: 25%;
+.orb.a{
+    width:95px;
+    height:95px;
+    right:15%;
+    top:22%;
 }
 
-.orb.b {
-    width: 35px;
-    height: 35px;
-    right: 30%;
-    top: 43%;
-    animation-delay: 1s;
+.orb.b{
+    width:42px;
+    height:42px;
+    left:48%;
+    top:33%;
+    animation-delay:-1s;
 }
 
-.orb.c {
-    width: 25px;
-    height: 25px;
-    left: 45%;
-    top: 28%;
-    animation-delay: 2s;
+.orb.c{
+    width:28px;
+    height:28px;
+    left:16%;
+    top:42%;
+    animation-delay:-2s;
 }
 
-@keyframes float {
-    0%,100% {
-        transform: translateY(0);
+.orb.d{
+    width:62px;
+    height:62px;
+    right:38%;
+    top:61%;
+    animation-delay:-3s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translate(0,0) rotate(0);
     }
-    50% {
-        transform: translateY(-24px);
+    50%{
+        transform:translate(15px,-28px) rotate(20deg);
     }
 }
 
-/* ================= SPARKLES ================= */
+/* ================= CHAOTIC STARS ================= */
 
-.star {
-    position: absolute;
-    z-index: 30;
-    color: white;
+.star{
+    position:absolute;
+    z-index:80;
+    color:white;
+    font-size:35px;
     text-shadow:
         0 0 8px white,
-        0 0 20px #ff1493;
-    font-size: 28px;
-    animation: shine 2s infinite;
+        0 0 20px #ff1493,
+        0 0 40px #ff1493;
+    animation:shine 1.8s infinite;
 }
 
-.star.a {
-    right: 28%;
-    top: 25%;
+.star.a{
+    top:19%;
+    right:27%;
 }
 
-.star.b {
-    left: 43%;
-    top: 48%;
-    animation-delay: .7s;
+.star.b{
+    top:47%;
+    left:42%;
+    animation-delay:.5s;
 }
 
-.star.c {
-    left: 17%;
-    top: 20%;
-    animation-delay: 1.2s;
+.star.c{
+    top:67%;
+    right:19%;
+    animation-delay:1s;
 }
 
-@keyframes shine {
-    0%,100% {
-        opacity: .2;
-        transform: scale(.7) rotate(0);
+.star.d{
+    top:35%;
+    left:9%;
+    animation-delay:1.5s;
+}
+
+@keyframes shine{
+    0%,100%{
+        opacity:.2;
+        transform:scale(.6) rotate(0);
     }
-    50% {
-        opacity: 1;
-        transform: scale(1.3) rotate(45deg);
+    50%{
+        opacity:1;
+        transform:scale(1.5) rotate(45deg);
     }
+}
+
+/* ================= FLOATING LABELS ================= */
+
+.sticker{
+    position:absolute;
+    z-index:100;
+    padding:10px 15px;
+    border:2px solid #160b13;
+    background:#fff8e7;
+    font-family:'Bebas Neue';
+    font-size:17px;
+    letter-spacing:2px;
+    box-shadow:5px 5px 0 #ff1493;
+}
+
+.sticker.one{
+    right:5%;
+    top:43%;
+    transform:rotate(11deg);
+}
+
+.sticker.two{
+    left:3%;
+    bottom:13%;
+    transform:rotate(-9deg);
+}
+
+.sticker.three{
+    right:34%;
+    top:15%;
+    transform:rotate(-7deg);
 }
 
 /* ================= MARQUEE ================= */
 
-.marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    background: #ff1493;
-    color: white;
-    padding: 15px 0;
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 14px;
-    letter-spacing: 3px;
+.marquee{
+    position:relative;
+    z-index:500;
+    overflow:hidden;
+    white-space:nowrap;
+    background:#ff1493;
+    color:white;
+    border-top:3px solid #160b13;
+    border-bottom:3px solid #160b13;
+    padding:14px 0;
+    transform:rotate(-1deg) scale(1.03);
 }
 
-.marquee-inner {
-    display: inline-block;
-    animation: scroll 18s linear infinite;
+.marquee-inner{
+    display:inline-block;
+    font-family:'Archivo Black';
+    font-size:16px;
+    letter-spacing:3px;
+    animation:scroll 15s linear infinite;
 }
 
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+@keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
 }
 
 /* ================= SHOP ================= */
 
-.section {
-    padding: 120px 5vw;
+.section{
+    position:relative;
+    padding:130px 5vw;
+    overflow:hidden;
 }
 
-.section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 50px;
+.section::before{
+    content:"PINK FREAK";
+    position:absolute;
+    z-index:0;
+    top:20px;
+    left:-20px;
+    font-family:'Archivo Black';
+    font-size:20vw;
+    color:transparent;
+    -webkit-text-stroke:2px rgba(255,20,147,.1);
+    transform:rotate(-5deg);
 }
 
-.section-title {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(55px, 10vw, 140px);
-    line-height: .75;
-    letter-spacing: -.09em;
+.section-heading{
+    position:relative;
+    z-index:5;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:65px;
 }
 
-.small {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
+.section-title{
+    font-family:'Archivo Black';
+    font-size:clamp(65px,12vw,170px);
+    line-height:.68;
+    letter-spacing:-.11em;
+    transform:rotate(-3deg);
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
+.small{
+    font-size:10px;
+    font-weight:bold;
+    transform:rotate(4deg);
 }
 
-.product-image {
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
+/* ================= PRODUCTS ================= */
+
+.products{
+    position:relative;
+    z-index:10;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.product{
+    display:block;
+}
+
+.product:nth-child(1){
+    transform:rotate(-3deg);
+}
+
+.product:nth-child(2){
+    transform:rotate(4deg);
+    margin-top:45px;
+}
+
+.product:nth-child(3){
+    transform:rotate(-2deg);
+}
+
+.product-image{
+    height:500px;
+    position:relative;
+    overflow:hidden;
+    border:3px solid #160b13;
     background:
-        radial-gradient(circle at 30% 20%,white,transparent 13%),
-        linear-gradient(135deg,#ffd5ed,#ff1493 45%,#7c004f);
-    transition: .5s;
+        radial-gradient(circle at 25% 20%,white,transparent 10%),
+        radial-gradient(circle at 80% 80%,#fff,transparent 7%),
+        linear-gradient(
+            135deg,
+            #ffd7ed,
+            #ff1493 40%,
+            #760047 80%
+        );
+    box-shadow:10px 10px 0 #160b13;
+    transition:.3s;
 }
 
-.product:nth-child(2) .product-image {
+.product:nth-child(2) .product-image{
     background:
-        radial-gradient(circle at 65% 20%,white,transparent 12%),
-        linear-gradient(140deg,#f5e5ed,#d00083 48%,#26091f);
+        repeating-linear-gradient(
+            135deg,
+            #ff1493 0 15px,
+            #ff9ed6 15px 28px,
+            #fff 28px 34px,
+            #b60070 34px 48px
+        );
 }
 
-.product:nth-child(3) .product-image {
+.product:nth-child(3) .product-image{
     background:
-        radial-gradient(circle at 45% 15%,white,transparent 12%),
-        linear-gradient(130deg,#ffb5df,#ff1493,#6e0047);
+        radial-gradient(circle at 50% 25%,white,transparent 10%),
+        linear-gradient(120deg,#fff,#ff1493 45%,#580036);
 }
 
-.product-image::before {
-    content: "";
-    position: absolute;
-    width: 180%;
-    height: 25%;
-    left: -40%;
-    top: 38%;
-    background: rgba(255,255,255,.4);
-    transform: rotate(-25deg);
-    filter: blur(15px);
+.product-image::before{
+    content:"FREAK";
+    position:absolute;
+    font-family:'Archivo Black';
+    font-size:120px;
+    color:transparent;
+    -webkit-text-stroke:3px rgba(255,255,255,.65);
+    transform:rotate(-20deg);
+    top:30%;
+    left:-10%;
 }
 
-.product:hover .product-image {
-    transform: scale(.97) rotate(-1deg);
+.product-image::after{
+    content:"✦ ✦ ✦";
+    position:absolute;
+    color:white;
+    font-size:45px;
+    letter-spacing:25px;
+    top:12%;
+    right:-5%;
+    transform:rotate(15deg);
 }
 
-.product-name {
-    margin-top: 15px;
-    font-size: 12px;
-    font-weight: 700;
+.product:hover .product-image{
+    transform:scale(.96) rotate(3deg);
+    box-shadow:-8px 8px 0 #ff1493;
 }
 
-.product-price {
-    margin-top: 6px;
-    font-size: 11px;
+.product-name{
+    margin-top:22px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.product-price{
+    margin-top:6px;
+    font-size:11px;
 }
 
 /* ================= ABOUT ================= */
 
-.about {
-    min-height: 80vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10vw;
-    align-items: center;
+.about{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8vw;
+    align-items:center;
 }
 
-.about-title {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(60px,10vw,150px);
-    line-height: .75;
-    letter-spacing: -.1em;
+.about-title{
+    position:relative;
+    z-index:5;
+    font-family:'Archivo Black';
+    font-size:clamp(65px,11vw,160px);
+    line-height:.67;
+    letter-spacing:-.12em;
+    transform:rotate(-5deg);
+    text-shadow:
+        7px 7px 0 #ff1493,
+        12px 12px 0 #160b13;
 }
 
-.about-copy {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(17px,2vw,27px);
-    line-height: 1.45;
-    font-weight: 700;
+.about-copy{
+    position:relative;
+    z-index:5;
+    font-size:clamp(17px,2vw,27px);
+    line-height:1.4;
+    font-weight:bold;
+    transform:rotate(2deg);
+}
+
+.about-copy::before{
+    content:"✦";
+    display:block;
+    color:#ff1493;
+    font-size:70px;
 }
 
 /* ================= FOOTER ================= */
 
-footer {
-    background: #160b13;
-    color: #fff8e7;
-    padding: 80px 5vw 30px;
+footer{
+    position:relative;
+    overflow:hidden;
+    background:#160b13;
+    color:#fff8e7;
+    padding:100px 5vw 30px;
 }
 
-.footer-logo {
-    font-family: 'Archivo Black', sans-serif;
-    color: #ff1493;
-    font-size: clamp(80px,17vw,240px);
-    line-height: .7;
-    letter-spacing: -.1em;
+.footer-noise{
+    position:absolute;
+    inset:0;
+    opacity:.15;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0 10px,
+            #ff1493 10px 12px
+        );
 }
 
-.footer-bottom {
-    margin-top: 90px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 9px;
-    letter-spacing: 1px;
+.footer-logo{
+    position:relative;
+    z-index:3;
+    font-family:'Archivo Black';
+    color:#ff1493;
+    font-size:clamp(90px,18vw,260px);
+    line-height:.62;
+    letter-spacing:-.13em;
+    transform:rotate(-4deg);
+    text-shadow:
+        6px 6px 0 white,
+        12px 12px 0 #ff1493;
+}
+
+.footer-bottom{
+    position:relative;
+    z-index:3;
+    margin-top:110px;
+    display:flex;
+    justify-content:space-between;
+    font-size:9px;
+    letter-spacing:1px;
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:800px) {
+@media(max-width:800px){
 
-    nav {
-        height: 64px;
-        padding: 0 20px;
+    nav{
+        height:62px;
+        padding:0 16px;
     }
 
-    .navlinks {
-        display: none;
+    .navlinks{
+        display:none;
     }
 
-    .hero {
-        min-height: 900px;
-        padding: 130px 20px 50px;
+    .hero{
+        min-height:900px;
+        padding:105px 18px 40px;
     }
 
-    .hero-title {
-        font-size: 23vw;
+    .hero-title{
+        font-size:24vw;
     }
 
-    .hero-copy {
-        max-width: 330px;
+    .hero-title .freak{
+        left:5vw;
     }
 
-    .landscape {
-        height: 48%;
-        bottom: -3%;
+    .hero-copy{
+        margin-left:3vw;
+        max-width:310px;
     }
 
-    .products {
-        grid-template-columns: 1fr;
+    .shop-btn{
+        margin-left:3vw;
     }
 
-    .product-image {
-        height: 430px;
+    .blob.one{
+        width:90vw;
+        height:65vw;
     }
 
-    .about {
-        grid-template-columns: 1fr;
-        gap: 70px;
+    .blob.two{
+        width:75vw;
+        height:60vw;
     }
 
-    .section {
-        padding: 85px 20px;
+    .blob.three{
+        width:50vw;
+        height:45vw;
+        left:30%;
     }
 
-    .section-heading {
-        display: block;
+    .sticker.one{
+        top:47%;
+        right:3%;
     }
 
-    .small {
-        margin-top: 25px;
+    .sticker.three{
+        top:13%;
+        right:4%;
     }
 
-    .footer-bottom {
-        display: block;
-        line-height: 2.5;
+    .products{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
+
+    .product:nth-child(2){
+        margin-top:0;
+    }
+
+    .product-image{
+        height:430px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+        gap:80px;
+    }
+
+    .about-title{
+        font-size:22vw;
+    }
+
+    .section{
+        padding:90px 20px;
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .small{
+        margin-top:30px;
+    }
+
+    .footer-bottom{
+        display:block;
+        line-height:3;
+    }
+
+    .micro{
+        font-size:17px;
     }
 }
 </style>
@@ -559,21 +843,30 @@ footer {
 
 <section class="hero">
 
+    <div class="ghost one">FREAK</div>
+    <div class="ghost two">PINK</div>
+
     <div class="hero-title">
         <div class="pink">PINK</div>
-        <div class="chrome">FREAK</div>
+        <div class="freak">FREAK</div>
     </div>
+
+    <div class="micro one">COLLECTION_001</div>
+    <div class="micro two">NO RULES / NO NORMAL</div>
+    <div class="micro three">Y2K_//_RELOADED</div>
 
     <p class="hero-copy">
         Y2K fashion for people who were never
         interested in looking normal.
+        <br><br>
+        WEAR IT WEIRD.
     </p>
 
     <a href="#shop" class="shop-btn">
         SHOP THE DROP →
     </a>
 
-    <div class="landscape">
+    <div class="chaos">
 
         <div class="blob one"></div>
         <div class="blob two"></div>
@@ -586,17 +879,23 @@ footer {
     <div class="orb a"></div>
     <div class="orb b"></div>
     <div class="orb c"></div>
+    <div class="orb d"></div>
 
     <div class="star a">✦</div>
     <div class="star b">✦</div>
     <div class="star c">✦</div>
+    <div class="star d">✦</div>
+
+    <div class="sticker one">TOO MUCH?</div>
+    <div class="sticker two">FREAK MODE</div>
+    <div class="sticker three">EST. 2026</div>
 
 </section>
 
 
 <div class="marquee">
     <div class="marquee-inner">
-        PINK FREAK ✦ Y2K FOREVER ✦ CHROME ATTITUDE ✦ NEW DROP ✦ PINK FREAK ✦ Y2K FOREVER ✦ CHROME ATTITUDE ✦ NEW DROP ✦
+        PINK FREAK ✦ CHROME ATTITUDE ✦ Y2K FOREVER ✦ NO NORMAL PEOPLE ✦ NEW DROP ✦ PINK FREAK ✦ CHROME ATTITUDE ✦ Y2K FOREVER ✦ NO NORMAL PEOPLE ✦ NEW DROP ✦
     </div>
 </div>
 
@@ -614,7 +913,6 @@ footer {
         </div>
 
     </div>
-
 
     <div class="products">
 
@@ -655,13 +953,15 @@ footer {
         loud graphics and pieces that refuse
         to disappear into the background.
         <br><br>
-        Wear it weird.
+        WEAR IT WEIRD.
     </p>
 
 </section>
 
 
 <footer id="contact">
+
+    <div class="footer-noise"></div>
 
     <div class="footer-logo">
         PINK<br>FREAK
